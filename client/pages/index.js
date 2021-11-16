@@ -8,7 +8,7 @@ export default function LandingPage({ currentUser }) {
   );
 }
 
-export const getInitialProps = async (context) => {
+LandingPage.getInitialProps = async (context) => {
   const client = buildClient(context);
   const { data } = await client.get("/api/users/currentuser");
   return data;

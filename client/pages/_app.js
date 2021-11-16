@@ -2,16 +2,16 @@ import buildClient from "../api/buildClient";
 import Header from "../components/header";
 import "bootstrap/dist/css/bootstrap.css";
 
-export default ({ Component, pageProps, currentUser }) => {
+export default function App({ Component, pageProps, currentUser }) {
   return (
     <div>
       <Header currentUser={currentUser} />
       <Component {...pageProps} />
     </div>
   );
-};
+}
 
-export const getInitialProps = async (appContext) => {
+App.getInitialProps = async (appContext) => {
   const client = buildClient(appContext.ctx);
   const { data } = await client.get("/api/users/currentuser");
 
